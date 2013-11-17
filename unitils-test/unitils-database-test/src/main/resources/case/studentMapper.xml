@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.unitils.database.mapper.StudentMapper">
+
+	<resultMap type="org.unitils.database.domain.Student" id="Student_Map">
+		<id property="id" column="id" />
+		<result property="age" column="age" />
+		<result property="name" column="name" />
+	</resultMap>
+
+	<insert id="insert" parameterType="org.unitils.database.domain.Student">
+		insert into student (age,name)
+		values (#{age},#{name})
+	</insert>
+
+	<select id="select" resultType="org.unitils.database.domain.Student"
+		parameterType="String">
+		select *
+		from student where name=#{name}
+	</select>
+
+</mapper>
